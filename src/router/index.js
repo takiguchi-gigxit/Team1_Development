@@ -37,7 +37,7 @@ const routes = [
   // 社員紹介
   { path: '/introduce', name: 'IntroduceList', component: InforList },
   { path: '/introduce/detail/:id', name: 'IntroduceDetail', component: InforDetail },
-  { path: '/introduce/edit/:id', name: 'IntroduceEdit', component: InforEdit }
+  { path: '/introduce/edit/:id', name: 'Edit', component: InforEdit }
 ]
 
 const router = createRouter({

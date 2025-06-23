@@ -66,7 +66,7 @@ const employees = [
       <hr class="separator" />
       <!-- 区切り線 -->
       <hr class="separator" />
-        <RouterLink :to="`/detail/${employee.id}`" class="employee-name">
+      <RouterLink :to="`/introduce/detail/${employee.id}`" class="employee-name">
           {{ employee.name }}
       </RouterLink>
       <!-- 区切り線 -->
