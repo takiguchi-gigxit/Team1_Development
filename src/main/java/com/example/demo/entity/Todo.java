@@ -36,6 +36,10 @@ public class Todo {
     private LocalDateTime dueDate;
 
     private LocalDateTime createdAt;
+    
+    /**
+     * このTodoを所有するユーザー情報
+     */
 
     @ManyToOne
     @JoinColumn(name = "user_id")

@@ -32,11 +32,24 @@ public class NoticeController {
     private final UserRepository userRepository;
     private final NoticeRepository noticeRepository;
 
+    /**
+     * すべての通知を取得するエンドポイント
+     * 
+     * @return 通知のリスト
+     */
     @GetMapping
     public ResponseEntity<List<NoticeResponseDto>> getAll() {
         return ResponseEntity.ok(noticeService.getAllNotices());
     }
 
+    /**
+     * 新しい通知を作成するエンドポイント
+     * 
+     * @param dto 通知作成に必要なデータを持つDTO
+     * @param authentication 認証情報（ログインユーザーの取得に使用）
+     * @return 作成された通知のDTO
+     * @throws RuntimeException ユーザーが見つからない場合
+     */
     @PostMapping
     public ResponseEntity<NoticeResponseDto> create(
             @RequestBody NoticeRequestDto dto,
@@ -49,9 +62,15 @@ public class NoticeController {
         return ResponseEntity.ok(noticeService.createNotice(dto, user));
     }
     
+    /**
+     * 指定IDの通知を削除するエンドポイント
+     * 
+     * @param id 削除対象の通知ID
+     * @return 削除成功メッセージ
+     */
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteNotices(@PathVariable Long id){
-    	noticeRepository.deleteById(id);
-    	return ResponseEntity.ok("削除しました。");
+        noticeRepository.deleteById(id);
+        return ResponseEntity.ok("削除しました。");
     }
 }
