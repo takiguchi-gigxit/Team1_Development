@@ -30,7 +30,7 @@ public class NoticeController {
 
     private final NoticeService noticeService;
     private final UserRepository userRepository;
-    private final NoticeRepository noticerepository;
+    private final NoticeRepository noticeRepository;
 
     @GetMapping
     public ResponseEntity<List<NoticeResponseDto>> getAll() {
@@ -51,7 +51,7 @@ public class NoticeController {
     
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteNotices(@PathVariable Long id){
-    	noticerepository.deleteById(id);
+    	noticeRepository.deleteById(id);
     	return ResponseEntity.ok("削除しました。");
     }
 }
